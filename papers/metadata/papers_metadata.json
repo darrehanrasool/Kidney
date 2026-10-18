@@ -1,0 +1,96 @@
+{
+  "total_papers": 3,
+  "downloaded_pdfs_directory": "papers/pdf",
+  "papers": [
+    {
+      "id": "poonia_healthcare_2022",
+      "title": "Intelligent Diagnostic Prediction and Classification Models for Detection of Kidney Disease",
+      "authors": [
+        "Ramesh Chandra Poonia",
+        "Mukesh Kumar Gupta",
+        "Ibrahim Abunadi",
+        "Amani Abdulrahman Albraikan",
+        "Fahd N. Al-Wesabi",
+        "Manar Ahmed Hamza",
+        "Tulasi B"
+      ],
+      "year": 2022,
+      "venue": "Healthcare (MDPI)",
+      "volume": "10",
+      "issue": "2",
+      "article_number": "371",
+      "doi": "10.3390/healthcare10020371",
+      "pdf_path": "papers/pdf/kidney-4.pdf",
+      "modality": "Tabular clinical biomarkers",
+      "dataset": "UCI Chronic Kidney Disease (n=400, 24 attributes)",
+      "target_definition": "Binary classification: ckd vs notckd",
+      "feature_selection": "Chi-Square, ExtraTrees, Recursive Feature Elimination (RFE)",
+      "architecture": "Logistic Regression, Random Forest, Support Vector Machine, Naive Bayes, Decision Tree, KNN",
+      "best_accuracy": 0.9925,
+      "best_f1": 0.9925,
+      "reported_metrics": {
+        "Random Forest": {"accuracy": 0.9925, "precision": 0.99, "recall": 0.99, "f1": 0.9925},
+        "Logistic Regression": {"accuracy": 0.9625, "precision": 0.96, "recall": 0.96, "f1": 0.9625},
+        "SVM (RBF)": {"accuracy": 0.9750, "precision": 0.97, "recall": 0.97, "f1": 0.9750}
+      },
+      "reported_limitations": [
+        "Single-center cohort (Apollo Hospitals, India)",
+        "Missing data handled primarily by mean/median without uncertainty propagation",
+        "No external geographic validation cohort tested",
+        "Fixed 80/20 train/test split without repeated patient-stratified resampling"
+      ],
+      "reproducibility_status": "Independently reproduced on local UCI-CKD partition"
+    },
+    {
+      "id": "ma_fgcs_2020",
+      "title": "Detection and diagnosis of chronic kidney disease using deep learning-based heterogeneous modified artificial neural network",
+      "authors": [
+        "Lingyun Ma",
+        "Fuzhe Sun",
+        "Hongyu Jing"
+      ],
+      "year": 2020,
+      "venue": "Future Generation Computer Systems (Elsevier)",
+      "volume": "111",
+      "pages": "17-26",
+      "doi": "10.1016/j.future.2020.04.036",
+      "pdf_path": "papers/pdf/kidney-2.pdf",
+      "duplicate_pdf_path": "papers/pdf/kidney-1.pdf",
+      "modality": "Kidney Ultrasound & Multimodal IoMT platform",
+      "dataset": "Hospital Clinical Cohort & UCI CKD reference (n=640 subjects)",
+      "target_definition": "CKD Stage & renal failure diagnosis",
+      "architecture": "Heterogeneous Modified Artificial Neural Network (HMANN) combining Backpropagation MLP and SVM",
+      "best_accuracy": 0.9680,
+      "best_f1": 0.9650,
+      "reported_limitations": [
+        "Combines image texture features (GLCM) and clinical tabular features without clear separate modality ablations",
+        "Custom hospital cohort not publicly hosted under open license",
+        "No probability calibration or uncertainty estimation"
+      ],
+      "reproducibility_status": "Partially reproduced (tabular sub-components reproduced; ultrasound proprietary)"
+    },
+    {
+      "id": "hannan_pal_2023",
+      "title": "Detection and classification of kidney disease using convolution neural network",
+      "authors": [
+        "Hannan",
+        "Pal"
+      ],
+      "year": 2023,
+      "venue": "Journal of Neurology and Neurorehabilitation Research",
+      "pdf_path": "papers/pdf/kidney-3.pdf",
+      "modality": "Renal ultrasonography imaging",
+      "dataset": "Kidney ultrasound scans",
+      "target_definition": "Kidney condition classification",
+      "architecture": "Multi-layered Convolutional Neural Network (CNN)",
+      "best_accuracy": 0.8740,
+      "best_f1": 0.8710,
+      "reported_limitations": [
+        "Moderate sample size for deep 2D CNN training",
+        "Lack of standardized pre-training on general radiological domains",
+        "Does not integrate patient clinical history or serum biomarkers"
+      ],
+      "reproducibility_status": "Not directly reproducible without proprietary ultrasound images"
+    }
+  ]
+}

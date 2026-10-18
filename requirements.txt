@@ -1,0 +1,23 @@
+# Core Data Science & Numerical Computing
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+
+# Machine Learning & Tabular Modeling
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Deep Learning Frameworks
+torch>=2.1.0
+
+# Data Configuration & Utilities
+pyyaml>=6.0.1
+tqdm>=4.66.0
+requests>=2.31.0
+
+# Visualization & Reporting
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# System Monitoring & Hardware Telemetry
+psutil>=5.9.0

@@ -1,0 +1,35 @@
+visualization:
+  style: "seaborn-v0_8-whitegrid"
+  dpi: 300
+  figure_format: "png"
+  context: "paper"
+  palette: "deep"
+
+colors:
+  notckd: "#2ca02c" # Green for healthy/control
+  ckd: "#d62728"    # Red for chronic kidney disease
+  primary: "#1f77b4"
+  secondary: "#ff7f0e"
+  neutral: "#7f7f7f"
+  highlight: "#9467bd"
+
+plots:
+  confusion_matrix:
+    normalize: "true"
+    cmap: "Blues"
+    annot_fontsize: 11
+  roc_curve:
+    show_chance_level: true
+    line_width: 2.0
+  precision_recall:
+    show_baseline: true
+    line_width: 2.0
+  calibration:
+    n_bins: 10
+    strategy: "uniform"
+  feature_importance:
+    top_n: 20
+    orientation: "horizontal"
+  training_curves:
+    metrics: ["loss", "f1", "accuracy", "roc_auc"]
+    smooth_factor: 0.0

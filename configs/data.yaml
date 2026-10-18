@@ -1,0 +1,113 @@
+datasets:
+  primary: "UCI-CKD"
+  supported:
+    - id: "UCI-CKD"
+      name: "UCI Chronic Kidney Disease Dataset"
+      source_repository: "UCI Machine Learning Repository"
+      uci_id: 330
+      year: 2015
+      modality: "tabular_clinical"
+      num_records: 400
+      num_features: 24
+      target_column: "classification"
+      source_url: "https://archive.ics.uci.edu/static/public/330/chronic_kidney_disease.zip"
+      direct_data_url: "https://archive.ics.uci.edu/ml/machine-learning-databases/00330/chronic_kidney_disease.arff"
+      license: "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+      required_citation: "Rubini, L., Eswaran, P. (2015). Chronic Kidney Disease. UCI Machine Learning Repository."
+    - id: "Synthetic-CKD-Benchmark"
+      name: "Synthetic CKD Verification Cohort"
+      source_repository: "KidneyCare-AI Internal Generator"
+      year: 2026
+      modality: "tabular_clinical"
+      num_records: 400
+      num_features: 24
+      target_column: "classification"
+      license: "MIT"
+      required_citation: "KidneyCare-AI Benchmarking Suite"
+    - id: "Kaggle-CKD-Prediction"
+      name: "Kaggle Kidney Disease Prediction Dataset"
+      source_repository: "Kaggle"
+      year: 2020
+      modality: "tabular_clinical"
+      target_column: "classification"
+      license: "Open Data"
+      requires_auth: true
+    - id: "Kidney-Ultrasound-Benchmark"
+      name: "Kidney Ultrasound Image Dataset (Optional)"
+      source_repository: "Academic / Hannan & Pal 2023"
+      year: 2023
+      modality: "imaging_ultrasound"
+      status: "optional_future_extension"
+
+features:
+  target_column: "classification"
+  binary_mapping:
+    notckd: 0
+    ckd: 1
+
+  # Original 24 attributes from UCI CKD
+  numerical_features:
+    - "age"   # Age in years
+    - "bp"    # Blood Pressure in mm/Hg
+    - "bgr"   # Blood Glucose Random in mgs/dl
+    - "bu"    # Blood Urea in mgs/dl
+    - "sc"    # Serum Creatinine in mgs/dl
+    - "sod"   # Sodium in mEq/L
+    - "pot"   # Potassium in mEq/L
+    - "hemo"  # Hemoglobin in gms
+    - "pcv"   # Packed Cell Volume
+    - "wc"    # White Blood Cell Count in cells/cumm
+    - "rc"    # Red Blood Cell Count in millions/cmm
+
+  categorical_features:
+    - "sg"    # Specific Gravity: 1.005, 1.010, 1.015, 1.020, 1.025
+    - "al"    # Albumin: 0, 1, 2, 3, 4, 5
+    - "su"    # Sugar: 0, 1, 2, 3, 4, 5
+    - "rbc"   # Red Blood Cells: normal, abnormal
+    - "pc"    # Pus Cell: normal, abnormal
+    - "pcc"   # Pus Cell Clumps: present, notpresent
+    - "ba"    # Bacteria: present, notpresent
+    - "htn"   # Hypertension: yes, no
+    - "dm"    # Diabetes Mellitus: yes, no
+    - "cad"   # Coronary Artery Disease: yes, no
+    - "appet" # Appetite: good, poor
+    - "pe"    # Pedal Edema: yes, no
+    - "ane"   # Anemia: yes, no
+
+  # Clinically engineered features
+  engineered_features:
+    - "egfr_mdrd"     # Estimated GFR via MDRD formula
+    - "bun_cr_ratio"  # Blood Urea Nitrogen to Creatinine ratio
+    - "anion_gap"     # Electrolyte gap surrogate
+
+  clinical_ranges:
+    age: { min: 1, max: 120, unit: "years" }
+    bp: { min: 40, max: 240, unit: "mm/Hg" }
+    bgr: { min: 20, max: 600, unit: "mgs/dl" }
+    bu: { min: 1, max: 450, unit: "mgs/dl" }
+    sc: { min: 0.1, max: 35.0, unit: "mgs/dl" }
+    sod: { min: 90, max: 180, unit: "mEq/L" }
+    pot: { min: 1.5, max: 12.0, unit: "mEq/L" }
+    hemo: { min: 2.0, max: 25.0, unit: "gms" }
+    pcv: { min: 10, max: 70, unit: "%" }
+    wc: { min: 1000, max: 35000, unit: "cells/cumm" }
+    rc: { min: 1.0, max: 10.0, unit: "millions/cmm" }
+
+preprocessing:
+  numerical_imputer: "median"       # median, mean, knn
+  categorical_imputer: "most_frequent"
+  scaling: "standard"               # standard, robust, minmax
+  categorical_encoding: "onehot"    # onehot, ordinal
+  outlier_handling: "clip"          # clip, none
+  outlier_quantile: 0.99
+  feature_engineering: true
+  remove_duplicates: true
+
+splitting:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  strategy: "stratified"
+  stratify_by: "classification"
+  shuffle: true
+  random_state: 42

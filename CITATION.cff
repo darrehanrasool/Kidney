@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+authors:
+  - family-names: "Rasool"
+    given-names: "Dar Rehan"
+title: "KidneyCare-AI: Modular, Research-Grade Clinical Machine Learning Platform for Chronic Kidney Disease Detection"
+version: 1.0.0
+date-released: 2026-10-18
+url: "https://github.com/darrehanrasool/KidneyCare-AI"
+license: MIT
+keywords:
+  - "chronic kidney disease"
+  - "clinical machine learning"
+  - "tabular classification"
+  - "explainable ai"
+  - "reproducible research"

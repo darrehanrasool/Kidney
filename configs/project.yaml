@@ -1,0 +1,49 @@
+project:
+  name: "KidneyCare-AI"
+  description: "Modular, Research-Grade Clinical Machine Learning Platform for Chronic Kidney Disease Detection"
+  version: "1.0.0"
+  author: "Dar Rehan Rasool"
+  license: "MIT"
+  created_at: "2026-10-18"
+
+clinical_boundary:
+  status: "research_and_educational"
+  diagnostic_claim: false
+  treatment_recommendation: false
+  disclaimer: >
+    KidneyCare-AI is strictly a research and educational platform for investigating machine
+    learning techniques on chronic kidney disease datasets. It is not an FDA/CE-cleared
+    medical device and must never be used as a substitute for professional clinical judgment,
+    screening, or definitive laboratory diagnosis.
+
+environment:
+  seed: 42
+  deterministic: true
+  benchmark: false
+  precision: "float32" # float32, mixed_float16
+
+paths:
+  data_dir: "data"
+  raw_dir: "data/raw"
+  raw_clinical: "data/raw/clinical"
+  raw_imaging: "data/raw/imaging"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  splits_dir: "data/splits"
+  manifest_dir: "data/manifests"
+  checkpoints_dir: "checkpoints"
+  models_dir: "outputs/trained_models"
+  outputs_dir: "outputs"
+  logs_dir: "logs"
+  reports_dir: "reports"
+  visualizations_dir: "visualizations"
+  papers_dir: "papers"
+  experiments_dir: "experiments"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s"
+  handlers:
+    - "console"
+    - "file"
+  file_path: "logs/application/kidneycare_ai.log"

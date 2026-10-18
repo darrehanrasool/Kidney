@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-10-18T15:13:11Z",
+  "datasets": {
+    "UCI-CKD": {
+      "name": "UCI Chronic Kidney Disease Dataset",
+      "provider": "UCI Machine Learning Repository / Apollo Hospitals",
+      "canonical_url": "https://archive.ics.uci.edu/dataset/336/chronic_kidney_disease",
+      "download_url": "https://archive.ics.uci.edu/static/public/336/chronic_kidney_disease.zip",
+      "format": "arff/csv",
+      "records": 400,
+      "features": 24,
+      "target": "classification (ckd / notckd)",
+      "modality": "tabular_clinical",
+      "split_strategy": "stratified_70_15_15",
+      "citation": "Rubini, L., Soundarapandian, P., & Eswaran, P. (2015). Chronic Kidney Disease. UCI Machine Learning Repository."
+    },
+    "Synthetic-CKD-Benchmark": {
+      "dataset_id": "Synthetic-CKD-Benchmark",
+      "name": "Synthetic Clinical CKD Verification Cohort",
+      "file_name": "synthetic_ckd_benchmark.csv",
+      "file_path": "data/raw/clinical/synthetic_ckd_benchmark.csv",
+      "file_size_bytes": 50224,
+      "sha256_checksum": "120f12fc3cf5565b16a100227ce3b1f5c5d0bdc260a30b21642aec04f931f054",
+      "download_date": "2026-10-18",
+      "source_url": "internal://kidneycare/synthetic",
+      "license": "MIT",
+      "modality": "tabular_clinical",
+      "target_definition": "Binary classification (ckd vs notckd)",
+      "feature_count": 24,
+      "record_count": 400,
+      "missing_value_count": 202,
+      "class_distribution": {
+        "ckd": 250,
+        "notckd": 150
+      },
+      "required_citation": "KidneyCare-AI Synthetic Benchmark Generator (2026).",
+      "known_limitations": [
+        "Statistically generated offline benchmark cohort"
+      ],
+      "processing_status": "verified_raw"
+    },
+    "PhysioNet-AKI": {
+      "name": "MIMIC-IV Acute Kidney Injury Cohort",
+      "provider": "PhysioNet (MIT / Beth Israel Deaconess)",
+      "canonical_url": "https://physionet.org/content/mimiciv/",
+      "access_type": "credentialed_data_use_agreement",
+      "format": "csv/parquet",
+      "modality": "ehr_time_series",
+      "status": "documented_optional_workflow"
+    }
+  }
+}

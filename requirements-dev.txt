@@ -1,0 +1,9 @@
+-r requirements.txt
+
+# Testing & Coverage
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Optional Advanced Models & Explainability
+xgboost>=2.0.0; extra == 'advanced'
+shap>=0.43.0; extra == 'advanced'

@@ -1,0 +1,22 @@
+experiment:
+  id: "EXP-CKD-BASELINE-2026"
+  name: "Canonical Chronic Kidney Disease Benchmark Evaluation"
+  dataset: "UCI-CKD-Tabular"
+  models:
+    - "logistic_regression"
+    - "random_forest"
+    - "gradient_boosting"
+    - "support_vector_machine"
+    - "tabular_mlp"
+    - "voting_ensemble"
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_macro"
+    - "specificity"
+    - "roc_auc"
+    - "brier_score"
+    - "expected_calibration_error"
+    - "latency_ms"
+  cross_validation_folds: 5
