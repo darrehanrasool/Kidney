@@ -23,17 +23,16 @@ class DeviceManager:
         self.preferred = preferred.lower()
         self._device: Optional["torch.device"] = None
 
-    def get_device(self) -> "torch.device":
+    def get_device(self, preferred: Optional[str] = None, preferred_device: Optional[str] = None) -> "torch.device":
         """Resolve and return appropriate PyTorch device.
 
         Returns:
             torch.device instance.
         """
+        pref = preferred or preferred_device or self.preferred
+        self.preferred = pref.lower()
         if not HAS_TORCH:
             raise RuntimeError("PyTorch is required for device management.")
-
-        if self._device is not None:
-            return self._device
 
         profile = self.detector.detect()
 

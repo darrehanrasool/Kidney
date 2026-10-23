@@ -30,7 +30,7 @@ def calculate_confusion_matrix_elements(y_true: np.ndarray, y_pred: np.ndarray) 
 def calculate_expected_calibration_error(y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10) -> float:
     """Calculate Expected Calibration Error (ECE) across probability bins."""
     bins = np.linspace(0.0, 1.0, n_bins + 1)
-    bin_indices = np.digitize(y_prob, bins) - 1
+    bin_indices = np.clip(np.digitize(y_prob, bins) - 1, 0, n_bins - 1)
     ece = 0.0
     total_samples = len(y_true)
 
@@ -152,3 +152,42 @@ def bootstrap_confidence_interval(
     lower = float(np.percentile(boot_scores, alpha * 100))
     upper = float(np.percentile(boot_scores, (1.0 - alpha) * 100))
     return point_estimate, lower, upper
+
+
+class ClinicalMetricsResult:
+    """Wrapper object with attribute and dict access for clinical metrics."""
+
+    def __init__(self, metrics_dict: Dict[str, Any]):
+        self._dict = metrics_dict
+        self.accuracy = metrics_dict["accuracy"]
+        self.precision = metrics_dict["precision"]
+        self.recall = metrics_dict["recall_sensitivity"]
+        self.sensitivity = metrics_dict["recall_sensitivity"]
+        self.specificity = metrics_dict["specificity"]
+        self.f1_macro = metrics_dict["f1_score"]
+        self.roc_auc = metrics_dict["roc_auc"]
+        self.pr_auc = metrics_dict["pr_auc"]
+        self.balanced_accuracy = metrics_dict["balanced_accuracy"]
+        self.brier_score = metrics_dict["brier_score"]
+        self.expected_calibration_error = metrics_dict["expected_calibration_error"]
+        self.confusion_matrix = metrics_dict["confusion_matrix"]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return self._dict
+
+    def __getitem__(self, item):
+        return self._dict[item]
+
+
+class ClinicalMetricsCalculator:
+    """Unified calculator for clinical diagnostic metrics."""
+
+    @staticmethod
+    def compute_binary_metrics(
+        y_true: np.ndarray,
+        y_pred: np.ndarray,
+        y_prob: Optional[np.ndarray] = None,
+        threshold: float = 0.5,
+    ) -> ClinicalMetricsResult:
+        metrics_dict = calculate_clinical_metrics(y_true, y_pred, y_prob, threshold)
+        return ClinicalMetricsResult(metrics_dict)

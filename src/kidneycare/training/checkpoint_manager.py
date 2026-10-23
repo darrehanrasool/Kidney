@@ -130,10 +130,11 @@ class CheckpointManager:
         metrics: Dict[str, float],
         preprocessor: Optional[Any] = None,
         feature_names: Optional[list] = None,
+        out_dir: Optional[Path] = None,
     ) -> Path:
         """Atomically persist scikit-learn estimator and fitted preprocessor."""
-        out_dir = Path("outputs/trained_models")
-        ensure_dir(out_dir)
+        target_dir = Path(out_dir) if out_dir else Path("outputs/trained_models")
+        ensure_dir(target_dir)
 
         payload = {
             "model_name": model_name,
@@ -143,16 +144,16 @@ class CheckpointManager:
             "saved_at": time.strftime("%Y-%m-%d %H:%M:%S"),
         }
 
-        temp_file = tempfile.NamedTemporaryFile("wb", dir=out_dir, delete=False, suffix=".pkl")
+        temp_file = tempfile.NamedTemporaryFile("wb", dir=target_dir, delete=False, suffix=".pkl")
         temp_path = Path(temp_file.name)
         temp_file.close()
 
         joblib.dump(payload, temp_path)
-        final_path = out_dir / f"{model_name}.pkl"
+        final_path = target_dir / f"{model_name}.pkl"
         shutil.move(str(temp_path), str(final_path))
 
         if preprocessor is not None:
-            prep_path = out_dir / "preprocessor.pkl"
+            prep_path = target_dir / "preprocessor.pkl"
             joblib.dump(preprocessor, prep_path)
 
         logger.info(f"Saved classical model {model_name} to {final_path}")

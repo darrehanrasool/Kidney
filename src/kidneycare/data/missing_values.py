@@ -62,11 +62,10 @@ class MissingValueHandler:
         # Impute categoricals
         for col, val in self.categorical_impute_values.items():
             if col in df_out.columns:
-                s = df_out[col].astype(str).str.strip().str.lower()
-                # Replace 'nan', '?', '', 'None' with the fitted imputation value
-                clean_mask = s.isin(["nan", "?", "", "none", "null"])
-                df_out.loc[clean_mask, col] = val
-                df_out[col] = df_out[col].fillna(val)
+                s = df_out[col].astype(object)
+                str_s = s.astype(str).str.strip().str.lower()
+                clean_mask = str_s.isin(["nan", "?", "", "none", "null"]) | s.isna()
+                df_out[col] = s.mask(clean_mask, val)
 
         return df_out
 

@@ -1,0 +1,27 @@
+{
+  "Random Forest": {
+    "total_samples": 60,
+    "batch_latency_ms": 21.581,
+    "per_sample_latency_ms": 0.3597
+  },
+  "Gradient Boosting": {
+    "total_samples": 60,
+    "batch_latency_ms": 0.372,
+    "per_sample_latency_ms": 0.0062
+  },
+  "Logistic Regression": {
+    "total_samples": 60,
+    "batch_latency_ms": 0.104,
+    "per_sample_latency_ms": 0.0017
+  },
+  "Support Vector Machine": {
+    "total_samples": 60,
+    "batch_latency_ms": 0.253,
+    "per_sample_latency_ms": 0.0042
+  },
+  "Voting Ensemble": {
+    "total_samples": 60,
+    "batch_latency_ms": 14.633,
+    "per_sample_latency_ms": 0.2439
+  }
+}

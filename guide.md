@@ -321,7 +321,54 @@ For low-memory systems (8 GB RAM):
 
 ---
 
-## 6. Clinical Safety Guardrails & Troubleshooting
+## 6. How to Run the Project
+
+### Step 1: Run Full Test Suite (22 Tests Passing)
+```bash
+PYTHONPATH=src pytest tests/ -v
+```
+
+### Step 2: Prepare Clinical Splits
+```bash
+python3 scripts/prepare_data.py
+python3 scripts/create_splits.py
+```
+
+### Step 3: Train All Classical Models
+```bash
+python3 scripts/train_all.py
+```
+
+### Step 4: Train Imaging & Multimodal Networks
+```bash
+# Trains RenalCNN with Anisotropic diffusion on Apple Silicon MPS
+python3 scripts/train_imaging.py --epochs 15 --device mps
+
+# Trains NephroFusionNet with Perceiver cross-attention and multi-task loss
+python3 scripts/train_multimodal.py --epochs 20 --device mps
+```
+
+### Step 5: Evaluate Models & Generate Reports
+```bash
+python3 scripts/evaluate_all.py
+python3 scripts/generate_visualizations.py
+```
+
+### Step 6: Launch Interactive Clinical UI Dashboard
+```bash
+python3 scripts/run_app.py --port 8080
+```
+
+Open [http://localhost:8080](http://localhost:8080) in your browser to interact with:
+- Patient Biomarker inputs (Age, Serum Creatinine, Blood Urea, Albumin, BP, Glucose).
+- Live 2021 Race-Free CKD-EPI eGFR calculation & KDIGO Stage assignment.
+- Conformal Prediction Set (95% coverage) with automated Specialist Abstention alerts.
+- Grad-CAM heatmap visualization for ultrasound and CT scans.
+- Research literature benchmark matrix comparing Ma et al., Hannan & Pal, and Poonia et al.
+
+---
+
+## 7. Clinical Safety Guardrails & Troubleshooting
 
 ### Clinical Screening vs. Diagnostic Boundaries
 1. **Screening Tool Only**: KidneyCare-AI identifies clinical patterns correlated with kidney disease risk; it does not replace kidney biopsy, ultrasound, or formal clinical workup.

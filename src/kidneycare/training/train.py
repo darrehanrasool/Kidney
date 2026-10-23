@@ -23,6 +23,7 @@ def train_model(
     config: Optional[Dict[str, Any]] = None,
     preprocessor: Optional[Any] = None,
     feature_names: Optional[list] = None,
+    output_dir: Optional[str] = None,
 ) -> Tuple[Any, Dict[str, Any]]:
     """Train either a classical estimator or a deep learning architecture.
 
@@ -97,6 +98,7 @@ def train_model(
             metrics=val_metrics,
             preprocessor=preprocessor,
             feature_names=feature_names,
+            out_dir=output_dir,
         )
 
         logger.info(

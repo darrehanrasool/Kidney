@@ -55,7 +55,17 @@ class ModelComparator:
         df.to_csv(csv_path, index=False)
 
         md_path = self.output_dir / f"{filename_prefix}.md"
-        md_text = f"# KidneyCare-AI Clinical Model Benchmark Comparison\n\n{df.to_markdown(index=False)}\n"
+        try:
+            table_md = df.to_markdown(index=False)
+        except Exception:
+            # Markdown table fallback without tabulate
+            cols = df.columns.tolist()
+            header = "| " + " | ".join(cols) + " |\n"
+            sep = "| " + " | ".join(["---"] * len(cols)) + " |\n"
+            rows = ["| " + " | ".join(str(val) for val in row) + " |\n" for row in df.values]
+            table_md = header + sep + "".join(rows)
+
+        md_text = f"# KidneyCare-AI Clinical Model Benchmark Comparison\n\n{table_md}\n"
         atomic_write_text(md_path, md_text)
 
         return csv_path, md_path

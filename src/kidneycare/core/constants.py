@@ -61,9 +61,31 @@ ALL_BASE_FEATURES: List[str] = NUMERICAL_FEATURES + CATEGORICAL_FEATURES
 
 # Engineered Clinical Biomarkers
 ENGINEERED_FEATURES: List[str] = [
-    "egfr_mdrd",     # Estimated Glomerular Filtration Rate (MDRD equation)
-    "bun_cr_ratio",  # Blood Urea Nitrogen / Serum Creatinine ratio
-    "anion_gap",     # Electrolyte balance surrogate
+    "egfr_mdrd",         # Estimated Glomerular Filtration Rate (4-variable MDRD)
+    "egfr_ckd_epi_2021", # 2021 CKD-EPI race-free eGFR (current clinical standard)
+    "bun_cr_ratio",      # Blood Urea Nitrogen / Serum Creatinine ratio
+    "anion_gap",         # Electrolyte balance surrogate (Na - Cl)
+    "htn_dm_risk",       # Synergistic hypertension x diabetes index
+]
+
+# KDIGO Albuminuria Categories (UACR mg/g)
+KDIGO_ALBUMINURIA_STAGES: Dict[str, Dict[str, Any]] = {
+    "A1": {"name": "Normal to mildly increased", "min": 0.0, "max": 29.9, "risk": "Low"},
+    "A2": {"name": "Moderately increased (microalbuminuria)", "min": 30.0, "max": 300.0, "risk": "Moderate"},
+    "A3": {"name": "Severely increased (macroalbuminuria)", "min": 300.1, "max": float("inf"), "risk": "Severe"},
+}
+
+# Imaging Pathology Classes
+IMAGING_CLASSES: List[str] = ["normal", "cyst", "stone", "tumour"]
+IMAGING_CLASS_MAPPING: Dict[str, int] = {c: i for i, c in enumerate(IMAGING_CLASSES)}
+INVERSE_IMAGING_CLASS_MAPPING: Dict[int, str] = {i: c for i, c in enumerate(IMAGING_CLASSES)}
+
+# Multi-Modal Tasks
+MULTIMODAL_TASKS: List[str] = [
+    "ckd_binary",       # Binary CKD screening (ckd vs notckd)
+    "kdigo_stage",      # Ordinal G1, G2, G3a, G3b, G4, G5
+    "albuminuria_stage",# Ordinal A1, A2, A3
+    "lesion_type",      # Normal, Cyst, Stone, Tumour
 ]
 
 # Physiologically Plausible Reference Ranges

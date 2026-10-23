@@ -14,7 +14,9 @@ from kidneycare.core.constants import TARGET_COLUMN
 from kidneycare.core.reproducibility import set_seed
 from kidneycare.data.preprocessing import ClinicalPreprocessor
 from kidneycare.training.train import train_model
+from kidneycare.visualization.training_curves import plot_training_history
 from kidneycare.monitoring.logging_config import setup_logging, get_logger
+from kidneycare.utils.file_utils import ensure_dir
 
 logger = get_logger("kidneycare.train_all")
 
@@ -30,7 +32,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    setup_logging()
+    setup_logging(log_file="logs/training/classical_training.log")
 
     print("=" * 80)
     print("                KIDNEYCARE-AI FULL MODEL TRAINING PIPELINE                       ")
@@ -38,7 +40,7 @@ def main():
 
     # Ensure splits exist
     if not Path(args.train_data).exists() or not Path(args.val_data).exists():
-        print("Splits not found. Executing prepare_data first...")
+        logger.info("Splits not found. Executing prepare_data first...")
         from scripts.prepare_data import main as run_prepare
         run_prepare()
 
@@ -64,6 +66,7 @@ def main():
     trained_models = {}
     for m_name in args.models:
         print(f"\nTraining Model: {m_name.upper()}...")
+        logger.info(f"Training Model: {m_name.upper()} on {len(X_train)} samples...")
         model, res = train_model(
             model_name=m_name,
             X_train=X_train,
@@ -76,6 +79,18 @@ def main():
         )
         trained_models[m_name] = model
 
+        # If model has training epoch history (Tabular MLP), plot curves in visualizations/training/
+        if isinstance(res, dict) and "history" in res and res["history"].get("history"):
+            try:
+                vt_dir = Path("visualizations/training")
+                ensure_dir(vt_dir)
+                curve_path = vt_dir / f"{m_name}_training_curves.png"
+                plot_training_history(res["history"], output_path=curve_path, model_name=m_name.replace("_", " ").title())
+                logger.info(f"Saved training loss & metric curves to {curve_path}")
+            except Exception as e:
+                logger.warning(f"Failed to plot training curve for {m_name}: {e}")
+
+    logger.info(f"All {len(trained_models)} models trained and saved to outputs/trained_models and checkpoints/!")
     print(f"\nAll {len(trained_models)} models trained and checkpoints saved in outputs/trained_models and checkpoints/!")
 
 

@@ -1,0 +1,239 @@
+{
+  "dataset_name": "UCI_CKD_Cohort",
+  "total_records": 400,
+  "total_features": 25,
+  "missing_values_by_feature": {
+    "sod": {
+      "count": 38,
+      "percentage": 9.5
+    },
+    "pot": {
+      "count": 26,
+      "percentage": 6.5
+    },
+    "wc": {
+      "count": 42,
+      "percentage": 10.5
+    },
+    "rc": {
+      "count": 40,
+      "percentage": 10.0
+    },
+    "rbc": {
+      "count": 25,
+      "percentage": 6.25
+    },
+    "pc": {
+      "count": 31,
+      "percentage": 7.75
+    }
+  },
+  "total_missing_cells": 202,
+  "overall_missing_rate_pct": 2.02,
+  "numerical_summary": {
+    "age": {
+      "mean": 50.265,
+      "std": 14.72,
+      "min": 15.0,
+      "median": 49.5,
+      "max": 90.0,
+      "skew": 0.107
+    },
+    "bp": {
+      "mean": 80.825,
+      "std": 11.507,
+      "min": 60.0,
+      "median": 80.0,
+      "max": 110.0,
+      "skew": 0.275
+    },
+    "bgr": {
+      "mean": 146.53,
+      "std": 67.727,
+      "min": 50.0,
+      "median": 128.5,
+      "max": 379.0,
+      "skew": 0.922
+    },
+    "bu": {
+      "mean": 58.483,
+      "std": 38.526,
+      "min": 10.0,
+      "median": 46.5,
+      "max": 215.0,
+      "skew": 0.97
+    },
+    "sc": {
+      "mean": 2.253,
+      "std": 2.161,
+      "min": 0.4,
+      "median": 1.35,
+      "max": 17.6,
+      "skew": 2.721
+    },
+    "sod": {
+      "mean": 136.704,
+      "std": 8.001,
+      "min": 110.0,
+      "median": 138.0,
+      "max": 156.0,
+      "skew": -0.699
+    },
+    "pot": {
+      "mean": 4.494,
+      "std": 0.953,
+      "min": 2.5,
+      "median": 4.4,
+      "max": 7.7,
+      "skew": 0.456
+    },
+    "hemo": {
+      "mean": 12.145,
+      "std": 3.15,
+      "min": 3.9,
+      "median": 12.1,
+      "max": 17.8,
+      "skew": -0.09
+    },
+    "pcv": {
+      "mean": 37.34,
+      "std": 8.787,
+      "min": 14.0,
+      "median": 37.0,
+      "max": 54.0,
+      "skew": -0.159
+    },
+    "wc": {
+      "mean": 8422.218,
+      "std": 2860.731,
+      "min": 2200.0,
+      "median": 8169.5,
+      "max": 17302.0,
+      "skew": 0.254
+    },
+    "rc": {
+      "mean": 4.454,
+      "std": 0.935,
+      "min": 2.1,
+      "median": 4.5,
+      "max": 6.5,
+      "skew": -0.388
+    }
+  },
+  "categorical_summary": {
+    "sg": {
+      "unique_values": 5,
+      "top_value": "1.015",
+      "frequencies": {
+        "1.015": 102,
+        "1.025": 101,
+        "1.02": 90,
+        "1.01": 78,
+        "1.005": 29
+      }
+    },
+    "al": {
+      "unique_values": 5,
+      "top_value": "0",
+      "frequencies": {
+        "0": 216,
+        "2": 61,
+        "1": 53,
+        "3": 43,
+        "4": 27
+      }
+    },
+    "su": {
+      "unique_values": 6,
+      "top_value": "0",
+      "frequencies": {
+        "0": 300,
+        "1": 34,
+        "2": 26,
+        "3": 23,
+        "4": 12,
+        "5": 5
+      }
+    },
+    "rbc": {
+      "unique_values": 2,
+      "top_value": "normal",
+      "frequencies": {
+        "normal": 247,
+        "abnormal": 128
+      }
+    },
+    "pc": {
+      "unique_values": 2,
+      "top_value": "normal",
+      "frequencies": {
+        "normal": 284,
+        "abnormal": 85
+      }
+    },
+    "pcc": {
+      "unique_values": 2,
+      "top_value": "notpresent",
+      "frequencies": {
+        "notpresent": 349,
+        "present": 51
+      }
+    },
+    "ba": {
+      "unique_values": 2,
+      "top_value": "notpresent",
+      "frequencies": {
+        "notpresent": 368,
+        "present": 32
+      }
+    },
+    "htn": {
+      "unique_values": 2,
+      "top_value": "no",
+      "frequencies": {
+        "no": 233,
+        "yes": 167
+      }
+    },
+    "dm": {
+      "unique_values": 2,
+      "top_value": "no",
+      "frequencies": {
+        "no": 255,
+        "yes": 145
+      }
+    },
+    "cad": {
+      "unique_values": 2,
+      "top_value": "no",
+      "frequencies": {
+        "no": 365,
+        "yes": 35
+      }
+    },
+    "appet": {
+      "unique_values": 2,
+      "top_value": "good",
+      "frequencies": {
+        "good": 300,
+        "poor": 100
+      }
+    },
+    "pe": {
+      "unique_values": 2,
+      "top_value": "no",
+      "frequencies": {
+        "no": 318,
+        "yes": 82
+      }
+    },
+    "ane": {
+      "unique_values": 2,
+      "top_value": "no",
+      "frequencies": {
+        "no": 337,
+        "yes": 63
+      }
+    }
+  }
+}

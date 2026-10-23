@@ -41,6 +41,8 @@ class ClinicalTrainer:
         self.val_loader = val_loader
 
         training_cfg = self.config.get("training", {})
+        if "training" in training_cfg and isinstance(training_cfg["training"], dict):
+            training_cfg = {**training_cfg, **training_cfg["training"]}
         opt_cfg = self.config.get("optimizer", {})
         sched_cfg = self.config.get("scheduler", {})
         es_cfg = self.config.get("early_stopping", {})

@@ -12,30 +12,32 @@ from kidneycare.evaluation.evaluation import ModelEvaluator
 
 
 def test_classical_training_and_eval_integration():
-    np.random.seed(42)
-    X_train = np.random.randn(80, 20).astype(np.float32)
-    y_train = np.random.choice([0, 1], size=80)
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        np.random.seed(42)
+        X_train = np.random.randn(80, 20).astype(np.float32)
+        y_train = np.random.choice([0, 1], size=80)
 
-    X_val = np.random.randn(20, 20).astype(np.float32)
-    y_val = np.random.choice([0, 1], size=20)
+        X_val = np.random.randn(20, 20).astype(np.float32)
+        y_val = np.random.choice([0, 1], size=20)
 
-    X_test = np.random.randn(20, 20).astype(np.float32)
-    y_test = np.random.choice([0, 1], size=20)
+        X_test = np.random.randn(20, 20).astype(np.float32)
+        y_test = np.random.choice([0, 1], size=20)
 
-    model, train_res = train_model(
-        model_name="random_forest",
-        X_train=X_train,
-        y_train=y_train,
-        X_val=X_val,
-        y_val=y_val,
-    )
-    assert "metrics" in train_res
+        model, train_res = train_model(
+            model_name="random_forest",
+            X_train=X_train,
+            y_train=y_train,
+            X_val=X_val,
+            y_val=y_val,
+            output_dir=tmp_dir,
+        )
+        assert "metrics" in train_res
 
-    evaluator = ModelEvaluator(optimal_threshold=0.5)
-    test_res = evaluator.evaluate_test_set(model, X_test, y_test, model_name="RandomForest")
-    assert "metrics" in test_res
-    assert test_res["metrics"]["sample_size"] == 20
-    assert 0.0 <= test_res["metrics"]["accuracy"] <= 1.0
+        evaluator = ModelEvaluator(optimal_threshold=0.5)
+        test_res = evaluator.evaluate_test_set(model, X_test, y_test, model_name="RandomForest")
+        assert "metrics" in test_res
+        assert test_res["metrics"]["sample_size"] == 20
+        assert 0.0 <= test_res["metrics"]["accuracy"] <= 1.0
 
 
 def test_deep_learning_training_and_eval_integration():

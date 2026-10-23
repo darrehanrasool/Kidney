@@ -1,4 +1,4 @@
-"""Model Factory for instantiating classical, deep learning, and ensemble architectures."""
+"""Model Factory for instantiating classical, deep learning, imaging, and multimodal architectures."""
 
 from typing import Dict, Any, Optional
 import torch.nn as nn
@@ -9,24 +9,17 @@ from kidneycare.models.classical.svm import get_svm
 from kidneycare.models.classical.gradient_boosting import get_gradient_boosting
 from kidneycare.models.deep_learning.tabular_mlp import TabularMLP
 from kidneycare.models.ensemble.voting_ensemble import get_voting_ensemble
+from kidneycare.models.imaging.vision_backbone import RenalCNN, ResNetRenalBackbone
+from kidneycare.models.multimodal.ft_transformer import FTTransformer
+from kidneycare.models.multimodal.nephro_fusion_net import NephroFusionNet
 
 
 class ModelFactory:
-    """Central factory for building and configuring KidneyCare-AI models."""
+    """Central factory for building and configuring KidneyCare-AI models across all modalities."""
 
     @staticmethod
     def create_model(model_name: str, config: Optional[Dict[str, Any]] = None, input_dim: int = 24) -> Any:
-        """Instantiate requested model by identifier.
-
-        Args:
-            model_name: Identifier ('logistic_regression', 'random_forest', 'svm',
-                        'gradient_boosting', 'tabular_mlp', 'voting_ensemble').
-            config: Optional dictionary containing model hyperparameters.
-            input_dim: Number of input features (required for deep learning architectures).
-
-        Returns:
-            Configured estimator or nn.Module.
-        """
+        """Instantiate requested model by identifier."""
         name = model_name.lower().replace("-", "_")
         cfg = config or {}
 
@@ -54,6 +47,31 @@ class ModelFactory:
                 use_batch_norm=use_batch_norm,
                 use_residual=use_residual,
             )
+        elif name in ["renal_cnn", "cnn", "hannan_cnn"]:
+            in_channels = cfg.get("in_channels", 1)
+            num_classes = cfg.get("num_classes", 4)
+            base_filters = cfg.get("base_filters", 32)
+            return RenalCNN(in_channels=in_channels, num_classes=num_classes, base_filters=base_filters)
+        elif name in ["resnet_renal", "resnet", "resnet18"]:
+            in_channels = cfg.get("in_channels", 1)
+            num_classes = cfg.get("num_classes", 4)
+            pretrained = cfg.get("pretrained", False)
+            return ResNetRenalBackbone(in_channels=in_channels, num_classes=num_classes, pretrained=pretrained)
+        elif name in ["ft_transformer", "tabular_transformer"]:
+            d_token = cfg.get("d_token", 64)
+            n_layers = cfg.get("n_layers", 3)
+            n_heads = cfg.get("n_heads", 4)
+            return FTTransformer(num_features=input_dim, d_token=d_token, n_layers=n_layers, n_heads=n_heads)
+        elif name in ["nephro_fusion_net", "nephro_fusion", "multimodal"]:
+            d_latent = cfg.get("d_latent", 128)
+            modality_dropout = cfg.get("modality_dropout", 0.3)
+            return NephroFusionNet(
+                num_tabular_features=input_dim,
+                d_latent=d_latent,
+                image_channels=1,
+                num_lesion_classes=4,
+                modality_dropout=modality_dropout,
+            )
         elif name in ["voting_ensemble", "voting"]:
             voting = cfg.get("voting", "soft")
             weights = cfg.get("weights")
@@ -61,11 +79,18 @@ class ModelFactory:
         else:
             raise ValueError(
                 f"Unknown model architecture '{model_name}'. Supported options: "
-                f"['logistic_regression', 'random_forest', 'svm', 'gradient_boosting', 'tabular_mlp', 'voting_ensemble']"
+                f"['logistic_regression', 'random_forest', 'svm', 'gradient_boosting', 'tabular_mlp', "
+                f"'renal_cnn', 'resnet_renal', 'ft_transformer', 'nephro_fusion_net', 'voting_ensemble']"
             )
 
     @staticmethod
     def is_deep_learning(model_name: str) -> bool:
         """Check if model is a PyTorch deep neural network."""
         name = model_name.lower().replace("-", "_")
-        return name in ["tabular_mlp", "mlp", "deep_mlp"]
+        return name in [
+            "tabular_mlp", "mlp", "deep_mlp",
+            "renal_cnn", "cnn", "hannan_cnn",
+            "resnet_renal", "resnet", "resnet18",
+            "ft_transformer", "tabular_transformer",
+            "nephro_fusion_net", "nephro_fusion", "multimodal",
+        ]

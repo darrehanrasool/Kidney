@@ -1,0 +1,13 @@
+{
+  "model_name": "tabular_mlp",
+  "epoch": 3,
+  "is_best": false,
+  "metrics": {
+    "loss": 0.6913469433784485,
+    "f1": 0.45893719806763283,
+    "accuracy": 0.5625,
+    "roc_auc": 0.4666666666666666
+  },
+  "latest_file": "checkpoints/latest/tabular_mlp_latest.pt",
+  "updated_at": "2026-10-23 23:24:45"
+}
