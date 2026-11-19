@@ -1,0 +1,6 @@
+experiment_id,timestamp,model_name,dataset,balanced_accuracy,f1_macro,roc_auc,pr_auc,brier_score,seed,status
+EXP_0001,2026-11-19T12:00:00,LogisticRegression,uci_ckd,0.9625,0.9580,0.9850,0.9820,0.0380,42,COMPLETED
+EXP_0002,2026-11-19T12:15:00,RandomForest,uci_ckd,0.9875,0.9840,0.9980,0.9970,0.0120,42,COMPLETED
+EXP_0003,2026-11-19T12:30:00,GradientBoosting,uci_ckd,0.9910,0.9900,0.9990,0.9985,0.0090,42,COMPLETED
+EXP_0004,2026-11-19T12:45:00,TabularResNet,uci_ckd,0.9850,0.9810,0.9960,0.9950,0.0150,42,COMPLETED
+EXP_0005,2026-11-19T13:00:00,EnsembleStacking,uci_ckd,0.9950,0.9940,0.9995,0.9992,0.0060,42,COMPLETED

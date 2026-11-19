@@ -1,0 +1,30 @@
+project:
+  name: "Kidney-AI"
+  description: "Enterprise-Grade Deep Learning & Machine Learning Framework for Chronic Kidney Disease Staging and Renal Prognosis"
+  version: "1.0.0"
+  author: "Dar Rehan Rasool"
+  institution: "Centre of Artificial Intelligence (CAI), IUST"
+  license: "MIT"
+  created_at: "2026-11-19"
+
+environment:
+  seed: 42
+  deterministic: true
+  benchmark: false
+  precision: "float32" # float32, mixed_float16, bfloat16
+
+paths:
+  data_dir: "data"
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  splits_dir: "data/splits"
+  manifest_dir: "data/manifests"
+  checkpoints_dir: "checkpoints"
+  models_dir: "models"
+  outputs_dir: "outputs"
+  logs_dir: "logs"
+  reports_dir: "reports"
+  visualizations_dir: "visualizations"
+  papers_dir: "papers"
+  experiments_dir: "experiments"

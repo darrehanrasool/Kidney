@@ -1,0 +1,26 @@
+KIDNEY-AI COMMAND CHEAT SHEET
+================================================================================
+1. SETUP & AUDIT:
+   make setup
+   python src/kidney_ai/main.py verify-hardware
+
+2. DATA WORKFLOW:
+   python src/kidney_ai/main.py download
+   python src/kidney_ai/main.py verify-datasets
+   python src/kidney_ai/main.py prepare
+
+3. MODEL TRAINING:
+   python src/kidney_ai/main.py train
+
+4. EVALUATION & VISUALIZATION:
+   python src/kidney_ai/main.py evaluate
+   python src/kidney_ai/main.py visualize
+
+5. CLINICAL INFERENCE:
+   python src/kidney_ai/main.py pipeline
+
+6. TEST SUITE & QUALITY:
+   make test
+   make lint
+   make format
+================================================================================

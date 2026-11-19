@@ -1,0 +1,18 @@
+experiment:
+  name: "baseline_ckd_benchmark"
+  description: "Comprehensive multi-model comparative benchmark on chronic kidney disease cohort"
+  cohort: "uci_ckd"
+  metrics:
+    - "balanced_accuracy"
+    - "f1_macro"
+    - "roc_auc"
+    - "pr_auc"
+    - "brier_score"
+    - "matthews_corrcoef"
+  models_to_evaluate:
+    - "logistic_regression"
+    - "random_forest"
+    - "gradient_boosting"
+    - "tabular_mlp"
+    - "tabular_resnet"
+    - "ensemble_stacking"

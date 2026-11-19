@@ -1,0 +1,69 @@
+data:
+  datasets:
+    uci_ckd:
+      name: "UCI Chronic Kidney Disease Benchmark"
+      id: "uci_ckd"
+      source_url: "https://archive.ics.uci.edu/dataset/336/chronic_kidney_disease"
+      task_type: "binary_classification"
+      target_column: "classification" # 0: notckd, 1: ckd
+      raw_filename: "chronic_kidney_disease.csv"
+      total_expected_records: 400
+
+    renal_biomarkers_cohort:
+      name: "Renal Function & Biomarker Longitudinal Cohort"
+      id: "renal_biomarkers"
+      task_type: "multiclass_classification"
+      target_column: "ckd_stage" # Stage 1, Stage 2, Stage 3a, Stage 3b, Stage 4, Stage 5
+      raw_filename: "renal_biomarkers.csv"
+
+  features:
+    numerical:
+      - age # Patient Age (years)
+      - blood_pressure # Blood Pressure (mm/Hg)
+      - specific_gravity # Urine Specific Gravity (1.005 - 1.030)
+      - albumin # Urine Albumin (0-5 scale)
+      - sugar # Urine Sugar (0-5 scale)
+      - blood_glucose_random # Random Blood Glucose (mg/dL)
+      - blood_urea # Blood Urea Nitrogen (mg/dL)
+      - serum_creatinine # Serum Creatinine (mg/dL)
+      - sodium # Serum Sodium (mEq/L)
+      - potassium # Serum Potassium (mEq/L)
+      - hemoglobin # Hemoglobin (g/dL)
+      - packed_cell_volume # Packed Cell Volume (%)
+      - white_blood_cell_count # Total WBC Count (cells/cumm)
+      - red_blood_cell_count # Total RBC Count (millions/cmm)
+
+    categorical:
+      - red_blood_cells # normal, abnormal
+      - pus_cell # normal, abnormal
+      - pus_cell_clumps # present, notpresent
+      - bacteria # present, notpresent
+      - hypertension # yes, no
+      - diabetes_mellitus # yes, no
+      - coronary_artery_disease # yes, no
+      - appetite # good, poor
+      - pedal_edema # yes, no
+      - anemia # yes, no
+
+    derived_features:
+      - egfr_ckd_epi # Estimated GFR (mL/min/1.73m^2)
+      - bun_creatinine_ratio # Ratio of Blood Urea to Creatinine
+      - electrolyte_ratio # Sodium to Potassium ratio
+      - metabolic_risk_index # Composite hypertension + diabetes + glucose index
+
+  splitting:
+    strategy: "stratified"
+    train_ratio: 0.70
+    val_ratio: 0.15
+    test_ratio: 0.15
+    random_state: 42
+    stratify_by: "target"
+
+  preprocessing:
+    imputation:
+      numerical_strategy: "median" # median, mean, knn, iterative
+      categorical_strategy: "most_frequent"
+    scaling: "robust" # standard, robust, minmax
+    encoding: "onehot" # onehot, target, ordinal
+    handle_outliers: true
+    outlier_method: "iqr_clip"

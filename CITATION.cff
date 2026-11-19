@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, methodology, architecture, or codebase in your academic research, please cite it as below."
+title: "Kidney-AI: Multi-Modal Deep Learning and Machine Learning Framework for Chronic Kidney Disease Staging, Acute Kidney Injury Prediction, and Renal Prognosis"
+version: 1.0.0
+date-released: 2026-11-19
+url: "https://github.com/darrehanrasool/Kidney"
+repository-code: "https://github.com/darrehanrasool/Kidney"
+license: "MIT"
+type: software
+authors:
+  - family-names: "Rasool"
+    given-names: "Dar Rehan"
+    affiliation: "Centre of Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India"
+    email: "rehanrasool@iust.ac.in"
+keywords:
+  - "Chronic Kidney Disease (CKD)"
+  - "Acute Kidney Injury (AKI)"
+  - "Nephrology Artificial Intelligence"
+  - "Medical Machine Learning"
+  - "Deep Learning"
+  - "Explainable AI (XAI)"
+  - "eGFR Progression"
+  - "Clinical Risk Scoring"
+abstract: "Kidney-AI is a comprehensive clinical research and deep learning platform engineered for early detection, progression tracking, and risk stratification of Chronic Kidney Disease (CKD) and Acute Kidney Injury (AKI). Featuring multi-paradigm modeling combining regularized gradient boosting and residual deep tabular neural networks with SHAP-based clinical explainability, the platform provides calibrated risk estimation and automated biomarker interpretation across diverse nephrology cohorts."
