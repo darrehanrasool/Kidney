@@ -8,7 +8,7 @@
 [![DOI: Zenodo](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.kidney--ai-blue.svg)](https://zenodo.org/)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Lead Author](https://img.shields.io/badge/Lead%20Author-Dar%20Rehan%20Rasool-0284c7.svg)](https://github.com/darrehanrasool)
+[![Project Lead](https://img.shields.io/badge/Project%20Lead-Dar%20Rehan%20Rasool-0284c7.svg)](https://github.com/darrehanrasool)
 [![Copyright](https://img.shields.io/badge/Copyright-%40darrehanrasool-10b981.svg)](https://github.com/darrehanrasool)
 
 **Kidney-AI** is an enterprise-grade clinical research platform and publication-grade benchmarking framework engineered for early screening, disease staging, and risk stratification of **Chronic Kidney Disease (CKD)** and **Acute Kidney Injury (AKI)**. Integrating clinical Electronic Health Records (EHR), serial laboratory biomarker panels (serum creatinine, blood urea nitrogen, urine albumin, electrolytes), and patient symptomatology, the platform introduces a **Multi-Paradigm Predictive Architecture**: combining fast, interpretable tree-based ensembles (Random Forest, Gradient Boosting, LightGBM) with deep residual tabular neural networks featuring Layer Normalization, skip connections, and Focal Loss regularization.
@@ -39,9 +39,9 @@ This research project and benchmark platform is collaboratively developed under 
 | Role | Name | Designation & Affiliation | Research & Project Contribution |
 | :--- | :--- | :--- | :--- |
 | **Faculty Research Supervisor** | **Dr. Safia Gul\*** | Faculty Supervisor, Centre for Artificial Intelligence (CAI) | Project Conceptualization, Clinical Research Supervision & Strategic Architecture Direction |
-| **Lead Author & Principal Researcher** | **Dar Rehan Rasool** | M.Tech Student, Centre for Artificial Intelligence, IUST | Architecture Design, Tabular ResNet, Clinical Feature Engineering, Benchmarks & XAI |
-| **Contributing Researcher** | **Muneeb Syed Shah** | M.Tech Student, Centre for Artificial Intelligence, IUST | Machine Learning Staging, Feature Harmonization & Cross-Cohort Evaluation |
-| **Contributing Researcher** | **Shafiya Bashir Pampori** | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
+| **Project Lead & Contributing Student** | **Dar Rehan Rasool** | M.Tech Student, Centre for Artificial Intelligence, IUST | Architecture Design, Tabular ResNet, Clinical Feature Engineering, Benchmarks & XAI |
+| **Contributing Student** | **Muneeb Syed Shah** | M.Tech Student, Centre for Artificial Intelligence, IUST | Machine Learning Staging, Feature Harmonization & Cross-Cohort Evaluation |
+| **Contributing Student** | **Shafiya Bashir Pampori** | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
 
 - **Academic Unit**: Centre for Artificial Intelligence (CAI)
 - **Institution**: Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India
