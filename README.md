@@ -39,9 +39,9 @@ This research project and benchmark platform is collaboratively developed under 
 | Role | Name | Designation & Affiliation | Research & Project Contribution |
 | :--- | :--- | :--- | :--- |
 | **Faculty Research Supervisor** | **Dr. Safia Gul\*** | Faculty Supervisor, Centre for Artificial Intelligence (CAI) | Project Conceptualization, Clinical Research Supervision & Strategic Architecture Direction |
-| **Project Lead & Contributing Student** | **Dar Rehan Rasool** | M.Tech Student, Centre for Artificial Intelligence, IUST | Architecture Design, Tabular ResNet, Clinical Feature Engineering, Benchmarks & XAI |
-| **Contributing Student** | **Muneeb Syed Shah** | M.Tech Student, Centre for Artificial Intelligence, IUST | Machine Learning Staging, Feature Harmonization & Cross-Cohort Evaluation |
-| **Contributing Student** | **Shafiya Bashir Pampori** | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
+| **Project Lead & Contributing Student** | [**Dar Rehan Rasool**](https://github.com/darrehanrasool) | M.Tech Student, Centre for Artificial Intelligence, IUST | Architecture Design, Tabular ResNet, Clinical Feature Engineering, Benchmarks & XAI |
+| **Contributing Student** | [**Muneeb Syed Shah**](https://github.com/muneebsyed-oss) | M.Tech Student, Centre for Artificial Intelligence, IUST | Machine Learning Staging, Feature Harmonization & Cross-Cohort Evaluation |
+| **Contributing Student** | [**Shafiya Bashir Pampori**](https://github.com/Shafiya-Bashir) | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
 
 - **Academic Unit**: Centre for Artificial Intelligence (CAI)
 - **Institution**: Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India
