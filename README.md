@@ -34,14 +34,20 @@ Calibrated via Platt scaling and paired with game-theoretic SHAP explainability,
 
 ## 👥 Research Team & Authorship
 
+This research project and benchmark platform is collaboratively developed under faculty guidance and supervision:
+
 | Role | Name | Designation & Affiliation | Research & Project Contribution |
 | :--- | :--- | :--- | :--- |
+| **Faculty Research Supervisor** | **Dr. Safia Gul\*** | Faculty Supervisor, Centre for Artificial Intelligence (CAI) | Project Conceptualization, Clinical Research Supervision & Strategic Architecture Direction |
 | **Lead Author & Principal Researcher** | **Dar Rehan Rasool** | M.Tech Student, Centre for Artificial Intelligence, IUST | Architecture Design, Tabular ResNet, Clinical Feature Engineering, Benchmarks & XAI |
+| **Contributing Researcher** | **Muneeb Syed Shah** | M.Tech Student, Centre for Artificial Intelligence, IUST | Machine Learning Staging, Feature Harmonization & Cross-Cohort Evaluation |
+| **Contributing Researcher** | **Shafiya Bashir Pampori** | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
 
 - **Academic Unit**: Centre for Artificial Intelligence (CAI)
 - **Institution**: Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India
 - **Repository**: [https://github.com/darrehanrasool/Kidney](https://github.com/darrehanrasool/Kidney)
 - **Copyright & Handle**: `@darrehanrasool` • [GitHub: darrehanrasool](https://github.com/darrehanrasool)
+- *\* Denotes corresponding/supervising faculty author.*
 
 ---
 
@@ -332,7 +338,7 @@ If you use this benchmark platform, mathematical derivations, or codebase in you
 
 ```bibtex
 @software{rasool2026kidneyai,
-  author       = {Rasool, Dar Rehan},
+  author       = {Rasool, Dar Rehan and Shah, Muneeb Syed and Pampori, Shafiya Bashir and Gul, Safia},
   title        = {Kidney-AI: Multi-Modal Deep Learning and Machine Learning Framework for Chronic Kidney Disease Staging, Acute Kidney Injury Prediction, and Renal Prognosis},
   year         = {2026},
   publisher    = {GitHub},
