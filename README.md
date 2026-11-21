@@ -41,7 +41,7 @@ This research project and benchmark platform is collaboratively developed under 
 | **Faculty Research Supervisor** | **Dr. Safia Gul\*** | Faculty Supervisor, Centre for Artificial Intelligence (CAI) | Project Conceptualization, Clinical Research Supervision & Strategic Architecture Direction |
 | **Project Lead & Contributing Student** | [**Dar Rehan Rasool**](https://github.com/darrehanrasool) | M.Tech Student, Centre for Artificial Intelligence, IUST | Architecture Design, Tabular ResNet, Clinical Feature Engineering, Benchmarks & XAI |
 | **Contributing Student** | [**Muneeb Syed Shah**](https://github.com/muneebsyed-oss) | M.Tech Student, Centre for Artificial Intelligence, IUST | Machine Learning Staging, Feature Harmonization & Cross-Cohort Evaluation |
-| **Contributing Student** | [**Shafiya Bashir Pampori**](https://github.com/Shafiya-Bashir) | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
+| **Contributing Student** | [**Shafiya Bashir Pampori**](https://github.com/shafiyabashirpampori) | M.Tech Student, Centre for Artificial Intelligence, IUST | Clinical Missingness Auditing, Biomarker Quality Analysis & Data Integrity |
 
 - **Academic Unit**: Centre for Artificial Intelligence (CAI)
 - **Institution**: Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India
@@ -53,7 +53,7 @@ This research project and benchmark platform is collaboratively developed under 
 
 ## 👥 Contributors
 
-- [**Shafiya Bashir**](https://github.com/Shafiya-Bashir) (`@Shafiya-Bashir`) — Contributor
+- [**Shafiya Bashir**](https://github.com/shafiyabashirpampori) (`@shafiyabashirpampori`) — Contributor
 - [**Dar Rehan Rasool**](https://github.com/darrehanrasool) (`@darrehanrasool`) — Project Lead & Maintainer
 - [**Muneeb Syed Shah**](https://github.com/muneebsyed-oss) (`@muneebsyed-oss`) — Contributor
 
@@ -239,6 +239,9 @@ Kidney/
 │   ├── explainability/
 │   ├── model_cards/
 │   └── research/
+├── research_resources/               # Research manuscripts and dataset resources
+│   ├── dataset/                      # Dataset sources, download links & documentation
+│   └── papers/                       # Full-text research papers (PDFs) & literature reviews
 ├── scripts/                          # Automated pipeline execution scripts
 │   ├── __init__.py
 │   ├── create_splits.py
