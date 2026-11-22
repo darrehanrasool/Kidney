@@ -1,35 +1,32 @@
 {
   "title": "Kidney-AI: Multi-Modal Deep Learning and Machine Learning Framework for Chronic Kidney Disease Staging and Renal Prognosis",
-  "description": "Comprehensive research platform and clinical benchmark combining machine learning and deep learning for nephrology prognosis, eGFR staging, and early kidney disease detection.",
+  "description": "Comprehensive clinical artificial intelligence benchmark combining machine learning and deep learning for nephrology prognosis, eGFR staging, and early kidney disease detection.",
   "creators": [
     {
-      "name": "Dar Rehan Rasool",
-      "affiliation": "Centre of Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, India",
+      "name": "Rasool, Dar Rehan",
+      "affiliation": "Centre for Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India",
       "orcid": "0009-0004-6426-5195"
     },
     {
-      "name": "Muneeb Syed Shah",
-      "affiliation": "Centre of Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, India"
+      "name": "Shah, Muneeb Syed",
+      "affiliation": "Centre for Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India"
     },
     {
-      "name": "Shafiya Bashir Pampori",
-      "affiliation": "Centre of Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, India"
+      "name": "Pampori, Shafiya Bashir",
+      "affiliation": "Centre for Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India"
     },
     {
-      "name": "Dr. Safia Gul",
-      "affiliation": "Centre of Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, India"
+      "name": "Gul, Dr. Safia",
+      "affiliation": "Centre for Artificial Intelligence (CAI), Islamic University of Science and Technology (IUST), Awantipora, Jammu & Kashmir, India"
     }
   ],
   "access_right": "open",
   "license": "MIT",
   "keywords": [
-    "Kidney Disease",
-    "Chronic Kidney Disease",
-    "Acute Kidney Injury",
-    "Clinical Machine Learning",
-    "Deep Learning",
-    "Medical AI",
-    "Explainable AI"
-  ],
-  "upload_type": "software"
+    "kidney-disease",
+    "nephrology",
+    "clinical-machine-learning",
+    "deep-learning",
+    "prognosis"
+  ]
 }
