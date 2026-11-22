@@ -239,6 +239,9 @@ Kidney/
 │   ├── explainability/
 │   ├── model_cards/
 │   └── research/
+├── research_resources/               # Research manuscripts and dataset resources
+│   ├── dataset/                      # Dataset sources, download links & documentation
+│   └── papers/                       # Full-text research papers (PDFs) & literature reviews
 ├── scripts/                          # Automated pipeline execution scripts
 │   ├── __init__.py
 │   ├── create_splits.py
