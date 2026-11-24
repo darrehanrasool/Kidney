@@ -239,6 +239,8 @@ Kidney/
 │   ├── methodology_extraction/
 │   ├── pdf/
 │   └── research_gaps/
+├── presentation/                     # Clinical & academic defense slide decks
+│   └── README.md
 ├── reports/                          # Generated research reports
 │   ├── data_quality/
 │   ├── evaluation/

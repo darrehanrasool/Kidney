@@ -109,4 +109,3 @@ logs/**/*.jsonl
 # Research manuscripts, large PDFs & preprints (kept local)
 papers/pdf/*.pdf
 !papers/pdf/.gitkeep
-docs/paper/*.pdf
